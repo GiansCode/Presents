@@ -1,9 +1,9 @@
-package io.chazza.pixelpresents.command;
+package io.alerium.presents.command;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Subcommand;
-import io.chazza.pixelpresents.PixelPresents;
+import io.alerium.presents.PixelPresents;
 import org.bukkit.command.CommandSender;
 
 /**
@@ -19,16 +19,14 @@ public class ReloadCommand extends BaseCommand {
     }
 
     @Subcommand("reload")
-    public void onCommand(CommandSender cs){
-        if(cs.hasPermission("pixelpresents.admin")) {
-            core.reloadConfig();
-
-
-            cs.sendMessage("");
-            core.setupPresents();
-            cs.sendMessage(core.getMsgManager().getMessage("reloaded"));
-        } else {
-            cs.sendMessage(core.getMsgManager().getMessage("permission"));
+    public void onCommand(CommandSender sender){
+        if (!sender.hasPermission("pixelpresents.admin")) {
+            sender.sendMessage(core.getMessageManager().getMessage("permission"));
+            return;
         }
+        
+        core.reloadConfig();
+        core.setupPresents();
+        sender.sendMessage(core.getMessageManager().getMessage("reloaded"));
     }
 }

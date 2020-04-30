@@ -1,6 +1,6 @@
-package io.chazza.pixelpresents.manager;
+package io.alerium.presents.manager;
 
-import io.chazza.pixelpresents.PixelPresents;
+import io.alerium.presents.PixelPresents;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 

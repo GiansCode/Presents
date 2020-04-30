@@ -5,21 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <name>PixelPresents</name>
 
-    <groupId>io.chazza</groupId>
+    <groupId>io.alerium</groupId>
     <artifactId>PixelPresents</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
 
     <build>
-        <sourceDirectory>src</sourceDirectory>
         <finalName>${project.artifactId}</finalName>
-        <resources>
-            <resource>
-                <directory>src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
                 <version>3.1</version>
@@ -44,10 +35,6 @@
                         <relocation>
                             <pattern>co.aikar.commands</pattern>
                             <shadedPattern>io.chazza.pixelpresents.acf</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>co.aikar.timings</pattern>
-                            <shadedPattern>io.chazza.pixelpresents.timings</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
@@ -81,32 +68,56 @@
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
+        
         <repository>
             <id>aikar</id>
             <url>http://ci.emc.gs/nexus/content/groups/aikar/</url>
         </repository>
+        
         <repository>
             <id>placeholderapi</id>
             <url>http://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
+
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
     </repositories>
 
     <dependencies>
-        <dependency>
-            <groupId>co.aikar</groupId>
-            <artifactId>acf-bukkit</artifactId>
-            <version>0.5.0-SNAPSHOT</version>
-        </dependency>
         <dependency>
             <groupId>com.destroystokyo.paper</groupId>
             <artifactId>paper-api</artifactId>
             <version>1.12-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
             <version>2.8.2</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>co.aikar</groupId>
+            <artifactId>acf-paper</artifactId>
+            <version>0.5.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.github.GiansCode</groupId>
+            <artifactId>ActionUtil</artifactId>
+            <version>a1266cbbc7</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

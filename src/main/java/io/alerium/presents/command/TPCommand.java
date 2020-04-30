@@ -1,9 +1,9 @@
-package io.chazza.pixelpresents.command;
+package io.alerium.presents.command;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Subcommand;
-import io.chazza.pixelpresents.PixelPresents;
+import io.alerium.presents.PixelPresents;
 import org.bukkit.entity.Player;
 
 /**
@@ -19,12 +19,13 @@ public class TPCommand extends BaseCommand {
     }
 
     @Subcommand("tp")
-    public void onCommand(Player p, Integer id){
-        if(p.hasPermission("pixelpresents.admin")) {
-            p.sendMessage(core.getMsgManager().getMessage("tp").replace("%id%", ""+id));
-            p.teleport(core.getPresents().get(id-1).getLocation());
-        } else {
-            p.sendMessage(core.getMsgManager().getMessage("permission"));
+    public void onCommand(Player player, Integer id){
+        if (!player.hasPermission("pixelpresents.admin")) {
+            player.sendMessage(core.getMessageManager().getMessage("permission"));
+            return;
         }
+        
+        player.sendMessage(core.getMessageManager().getMessage("tp").replace("%id%", ""+id));
+        player.teleport(core.getPresents().get(id-1).getLocation());
     }
 }

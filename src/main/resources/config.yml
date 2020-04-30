@@ -25,8 +25,6 @@ setup: "&aPresent has been created."
 #
 removed: "&cPresent has been removed."
 #
-already-found: "&cYou've already found this present!"
-#
 tp: "&aTeleported to Present #%id%."
 #
 shift-broken: "&cPresent has been deleted."
@@ -43,7 +41,11 @@ help:
 - ' &a/presents list'
 - ' &a/presents tp <id>'
 - ''
+  
+
+already-found: 
+  - '[MESSAGE] &6Already found'
 
 complete-reward:
-- "[Title] &aQuest Complete;&7All Presents Found!"
-- "[Actionbar] &aCongrats! All presents found;10"
+- "[TITLEMESSAGE] &aQuest Complete;&7All Presents Found!;10;10;10"
+- "[ACTIONBARMESSAGE] &aCongrats! All presents found"

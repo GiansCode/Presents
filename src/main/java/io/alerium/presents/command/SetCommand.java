@@ -1,9 +1,9 @@
-package io.chazza.pixelpresents.command;
+package io.alerium.presents.command;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Subcommand;
-import io.chazza.pixelpresents.PixelPresents;
+import io.alerium.presents.PixelPresents;
 import org.bukkit.entity.Player;
 
 /**
@@ -19,12 +19,13 @@ public class SetCommand extends BaseCommand {
     }
 
     @Subcommand("set")
-    public void onCommand(Player p){
-        if(p.hasPermission("pixelpresents.admin")) {
-            p.sendMessage(core.getMsgManager().getMessage("create"));
-            core.getPlayersEditing().put(p.getUniqueId(), System.currentTimeMillis());
-        } else {
-            p.sendMessage(core.getMsgManager().getMessage("permission"));
+    public void onCommand(Player player){
+        if (!player.hasPermission("pixelpresents.admin")) {
+            player.sendMessage(core.getMessageManager().getMessage("permission"));
+            return;
         }
+        
+        player.sendMessage(core.getMessageManager().getMessage("create"));
+        core.getPlayersEditing().put(player.getUniqueId(), System.currentTimeMillis());
     }
 }

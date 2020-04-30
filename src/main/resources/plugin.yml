@@ -1,6 +1,6 @@
 name: PixelPresents
-version: 1.0.1
-main: io.chazza.pixelpresents.PixelPresents
+version: 1.0.2
+main: io.alerium.presents.PixelPresents
 author: Chazmondo
 description: "Configure Findable Gifts for Rewards!"
 softdepend: [PlaceholderAPI]
