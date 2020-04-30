@@ -61,7 +61,7 @@ public class PixelPresents extends JavaPlugin {
 
         if(Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")){
             debug("PlaceholderAPI has been found!");
-            new PAPIHook(this).hook();
+            new PAPIHook(this).register();
         }
 
         Bukkit.getScheduler().runTaskTimerAsynchronously(this, () -> {
